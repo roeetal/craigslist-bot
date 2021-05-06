@@ -1,0 +1,2 @@
+USERNAME = ''
+SECRET_KEY = ''
