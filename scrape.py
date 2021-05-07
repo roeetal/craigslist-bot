@@ -35,6 +35,7 @@ class BikeFinder:
         try:
             while True:
                 updates = self.updates()
+                print(f'Found {len(updates.keys())} new posts!')
                 self.notify(updates)
                 sleep(self.nap_time)
         except Exception as e:
@@ -44,5 +45,5 @@ class BikeFinder:
 
 
 if __name__ == "__main__":
-    findBike = BikeFinder(nap_time=30)
+    findBike = BikeFinder(nap_time=1)
     findBike.run()
