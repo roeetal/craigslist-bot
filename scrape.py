@@ -37,6 +37,8 @@ class BikeFinder:
                 updates = self.updates()
                 self.notify(updates)
                 sleep(self.nap_time)
+        except Exception as e:
+            self.notification.push(str(e))
         finally:
             self.notification.push("Terminating search!")
 
