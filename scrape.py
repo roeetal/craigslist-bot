@@ -14,6 +14,7 @@ class BikeFinder:
         self.bot = CraigslistForSale(site=SITE, category=CATEGORY, filters=FILTERS)
         self.notification = SpontitResource(USERNAME, SECRET_KEY)
         self.notification.push("Starting bot...")
+        print("Starting bot...")
         self.posts = {x['id']: x for x in self.search()}
         sleep(self.nap_time)
         self.notification.push(f"Initialized with {len(self.posts)} posts.")
