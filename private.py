@@ -1,2 +1,0 @@
-USERNAME = ''
-SECRET_KEY = ''
