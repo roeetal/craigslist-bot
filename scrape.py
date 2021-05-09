@@ -11,7 +11,6 @@ from private import USERNAME, SECRET_KEY
 class BikeFinder:
     def __init__(self, nap_time=1):
         self.nap_time = nap_time
-        self.bot = CraigslistForSale(site=SITE, category=CATEGORY, filters=FILTERS)
         self.notification = SpontitResource(USERNAME, SECRET_KEY)
         self.notification.push("Starting bot...")
         print("Starting bot...")
@@ -19,8 +18,10 @@ class BikeFinder:
         sleep(self.nap_time)
         self.notification.push(f"Initialized with {len(self.posts)} posts.")
 
-    def search(self) -> Generator:
-        return self.bot.get_results(sort_by='newest', geotagged=True)
+    @staticmethod
+    def search() -> Generator:
+        bot = CraigslistForSale(site=SITE, category=CATEGORY, filters=FILTERS)
+        return bot.get_results(sort_by='newest', geotagged=True)
 
     def updates(self) -> Dict[str, Dict]:
         updates = {x['id']: x for x in self.search()}
