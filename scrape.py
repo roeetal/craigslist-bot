@@ -1,7 +1,7 @@
 from typing import Dict, Generator
 from time import sleep
 
-from craigslist import CraigslistForSale
+from craigslist import CraigslistHousing
 from spontit import SpontitResource
 
 from settings import SITE, CATEGORY, FILTERS
@@ -20,7 +20,9 @@ class BikeFinder:
 
     @staticmethod
     def search() -> Generator:
-        bot = CraigslistForSale(site=SITE, category=CATEGORY, filters=FILTERS)
+        # bike
+        # bot = CraigslistForSale(site=SITE, category=CATEGORY, filters=FILTERS)
+        bot = CraigslistHousing(site=SITE, category=CATEGORY, filters=FILTERS)
         return bot.get_results(sort_by='newest', geotagged=True)
 
     def updates(self) -> Dict[str, Dict]:
