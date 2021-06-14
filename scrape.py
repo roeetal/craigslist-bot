@@ -1,11 +1,11 @@
 from typing import Dict, Generator
 from time import sleep
 
-from craigslist import CraigslistHousing
+import craigslist as cg
 import requests
 import json
 
-from settings import SITE, CATEGORY, FILTERS
+from settings import SITE, WRAPPER, CATEGORY, FILTERS
 from private import EVENT_NAME, SECRET_KEY
 
 
@@ -20,7 +20,7 @@ class Bot:
 
     @staticmethod
     def search() -> Generator:
-        bot = CraigslistHousing(site=SITE, category=CATEGORY, filters=FILTERS)
+        bot = cg.__dict__[WRAPPER](site=SITE, category=CATEGORY, filters=FILTERS)
         return bot.get_results(sort_by='newest', geotagged=True)
 
     @staticmethod
@@ -68,5 +68,5 @@ class Bot:
 
 
 if __name__ == "__main__":
-    c_bot = Bot(nap_time=1)
+    c_bot = Bot(nap_time=60)
     c_bot.run()

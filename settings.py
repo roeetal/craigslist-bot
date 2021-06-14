@@ -1,15 +1,20 @@
 SITE = 'vancouver'
+
 # Bike
+
+# WRAPPER = 'CraigslistForSale'
 # CATEGORY = 'bia'
 # FILTERS = {'bicycle_frame_material': ['carbon fiber', 'composite']}
+
 # Housing
+
+WRAPPER = 'CraigslistHousing'
 CATEGORY = 'hhh'
 FILTERS = extra_filters = {
     'has_image': True,
     'max_price': 1400,
-    'max_bedrooms': 4,
     'search_distance': 5,
-    'zip_code': 'V6Z2Y1',
-    'rent_period': ['monthly', 'yearly'],
+    'bundle_duplicates': True,
+    'zip_code': 'V5T2Z3',
     'laundry': 'w/d in unit',
 }
