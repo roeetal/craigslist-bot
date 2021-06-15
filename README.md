@@ -1,19 +1,17 @@
 # craigslist-bot
 
-Scrape Craigslist to find new bike postings
+Scrape Craigslist to find new postings
 
-## Spontit
+## IFTTT
 
-1. Create account at https://spontit.com
-2. Generate API Key
-3. Add Spontit username and API Key to `private.py`
-4. Download Spontit app to device and login
+1. Create account
+2. Generate webhook API and connect to notification service
+3. Add webhook url and key to `private.py`
+4. Download IFTTT app on device and login
 
 ## Craigslist
 
 1. Define search parameters in `settings.py`
-
-You may need to fiddle with the scraper (in `scrape.py`)
 
 ## Scrape
 
